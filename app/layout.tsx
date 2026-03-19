@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Dancing_Script } from "next/font/google";
 import "./globals.css";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +20,7 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "LUCERNA | Candles",
+  title: "Prachi | Candles",
   description: "Be like a candle – hand-poured candles and vegan beauty care.",
 };
 
@@ -42,6 +43,7 @@ export default function RootLayout({
             {children}
           </WishlistProvider>
         </CartProvider>
+        <WhatsAppButton />
       </body>
     </html>
   );

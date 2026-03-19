@@ -48,7 +48,7 @@ function ProductCard({ product }: { product: typeof ALL_PRODUCTS[0] }) {
         </div>
         <h3 className="mt-3 text-sm font-medium text-zinc-800">{product.name}</h3>
         <p className="mt-1 text-sm font-medium text-zinc-600">${product.price}.00</p>
-        <div className="mt-2 flex flex-wrap justify-center gap-1.5">
+        {/* <div className="mt-2 flex flex-wrap justify-center gap-1.5">
           {product.colors.map((color, i) => (
             <span
               key={i}
@@ -57,7 +57,7 @@ function ProductCard({ product }: { product: typeof ALL_PRODUCTS[0] }) {
               aria-hidden
             />
           ))}
-        </div>
+        </div> */}
       </Link>
       
       {/* Wishlist Button */}

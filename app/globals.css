@@ -8,7 +8,7 @@
   --lucerna-sage-light: #b5c4b0;
   --lucerna-sage-bg: #e8ede6;
   --lucerna-beige: #f5f1eb;
-  --lucerna-announce: #e8e2d9;
+  --lucerna-announce: #92a2bbb8;
   --lucerna-text-dark: #2d2d2d;
   --lucerna-text-muted: #5a5a5a;
 }
@@ -28,4 +28,18 @@ body {
 
 .font-script {
   font-family: var(--font-lucerna-script), "Dancing Script", cursive;
+}
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 4rem; /* 64px to clear the fixed bottom nav */
+  }
 }
