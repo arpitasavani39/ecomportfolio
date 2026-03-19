@@ -1,10 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { useWishlist } from "../context/WishlistContext";
+import { useCart } from "../context/CartContext";
 
 export default function Header() {
+  const { wishlistCount } = useWishlist();
+  const { cartCount } = useCart();
+
   const navItems = [
-    { label: "Home", href: "#" },
-    { label: "Shop", href: "#" },
-    { label: "Products", href: "#" },
+    { label: "Home", href: "/" },
+    // { label: "Shop", href: "#" },
+    { label: "Products", href: "/products" },
     { label: "Pages", href: "#" },
     { label: "Contact", href: "#" },
   ];
@@ -59,16 +66,34 @@ export default function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </button>
-            <button type="button" className="text-zinc-600 hover:text-zinc-900" aria-label="Wishlist">
+            <Link 
+              href="/wishlist" 
+              className="relative text-zinc-600 hover:text-zinc-900" 
+              aria-label="Wishlist"
+            >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
-            </button>
-            <button type="button" className="text-zinc-600 hover:text-zinc-900" aria-label="Cart">
+              {wishlistCount > 0 && (
+                <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#9caa9a] text-[10px] font-bold text-white">
+                  {wishlistCount}
+                </span>
+              )}
+            </Link>
+            <Link 
+              href="/cart" 
+              className="relative text-zinc-600 hover:text-zinc-900" 
+              aria-label="Cart"
+            >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
-            </button>
+              {cartCount > 0 && (
+                <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#1e293b] text-[10px] font-bold text-white">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
           </div>
         </nav>
       </div>

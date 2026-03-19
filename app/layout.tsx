@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description: "Be like a candle – hand-poured candles and vegan beauty care.",
 };
 
+import { WishlistProvider } from "./context/WishlistContext";
+import { CartProvider } from "./context/CartContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,7 +37,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} antialiased`}
         suppressHydrationWarning
       >
-        {children}
+        <CartProvider>
+          <WishlistProvider>
+            {children}
+          </WishlistProvider>
+        </CartProvider>
       </body>
     </html>
   );
